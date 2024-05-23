@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: lightblue; /* Set background color to light blue */
+        }
+        #container {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            background-color: white; /* Default container background color */
+            border-radius: 10px; /* Optional: make the container corners rounded */
+            transition: all 0.3s; /* Add smooth transition for animation */
+        }
+        #no {
+            margin-left: 10px;
+            position: relative;
+            color: rgb(0, 0, 0); /* Set color to black */
+            transition: all 0.3s; /* Add smooth transition for animation */
+        }
+        #yes {
+            color: black; /* Set color to black */
+        }
+        #colorPicker {
+            display: none; /* Hide color picker */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="question">Are you Dumb?</h1>
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+
+    <script>
+        document.getElementById('yes').onclick = function() {
+            document.getElementById('question').innerText = "I knew it";
+        };
+
+        document.getElementById('no').onmouseover = function() {
+            var noButton = document.getElementById('no');
+            var container = document.getElementById('container');
+            var containerRect = container.getBoundingClientRect();
+            var buttonRect = noButton.getBoundingClientRect();
+
+            var newLeft = Math.random() * (containerRect.width - buttonRect.width);
+            var newTop = Math.random() * (containerRect.height - buttonRect.height);
+
+            noButton.style.left = newLeft + 'px';
+            noButton.style.top = newTop + 'px';
+            
+        };
+    </script>
+</body>
+</html>
